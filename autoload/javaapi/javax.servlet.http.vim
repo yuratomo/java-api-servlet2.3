@@ -1,0 +1,273 @@
+call javaapi#namespace('javax.servlet.http')
+
+call javaapi#class('Cookie', 'Cloneable', [
+  \ javaapi#method(0,'Cookie(', 'String, String)', 'public'),
+  \ javaapi#method(0,'setComment(', 'String)', 'void'),
+  \ javaapi#method(0,'getComment(', ')', 'String'),
+  \ javaapi#method(0,'setDomain(', 'String)', 'void'),
+  \ javaapi#method(0,'getDomain(', ')', 'String'),
+  \ javaapi#method(0,'setMaxAge(', 'int)', 'void'),
+  \ javaapi#method(0,'getMaxAge(', ')', 'int'),
+  \ javaapi#method(0,'setPath(', 'String)', 'void'),
+  \ javaapi#method(0,'getPath(', ')', 'String'),
+  \ javaapi#method(0,'setSecure(', 'boolean)', 'void'),
+  \ javaapi#method(0,'getSecure(', ')', 'boolean'),
+  \ javaapi#method(0,'getName(', ')', 'String'),
+  \ javaapi#method(0,'setValue(', 'String)', 'void'),
+  \ javaapi#method(0,'getValue(', ')', 'String'),
+  \ javaapi#method(0,'getVersion(', ')', 'int'),
+  \ javaapi#method(0,'setVersion(', 'int)', 'void'),
+  \ javaapi#method(0,'clone(', ')', 'Object'),
+  \ ])
+
+call javaapi#class('HttpServlet', '', [
+  \ javaapi#method(0,'HttpServlet(', ')', 'public'),
+  \ javaapi#method(0,'service(', 'ServletRequest, ServletResponse) throws ServletException, IOException', 'void'),
+  \ ])
+
+call javaapi#interface('HttpServletRequest', '', [
+  \ javaapi#field(1,'BASIC_AUTH', 'String'),
+  \ javaapi#field(1,'FORM_AUTH', 'String'),
+  \ javaapi#field(1,'CLIENT_CERT_AUTH', 'String'),
+  \ javaapi#field(1,'DIGEST_AUTH', 'String'),
+  \ javaapi#method(0,'getAuthType(', ')', 'String'),
+  \ javaapi#method(0,'getCookies(', ')', 'Cookie[]'),
+  \ javaapi#method(0,'getDateHeader(', 'String)', 'long'),
+  \ javaapi#method(0,'getHeader(', 'String)', 'String'),
+  \ javaapi#method(0,'getHeaders(', 'String)', 'Enumeration'),
+  \ javaapi#method(0,'getHeaderNames(', ')', 'Enumeration'),
+  \ javaapi#method(0,'getIntHeader(', 'String)', 'int'),
+  \ javaapi#method(0,'getMethod(', ')', 'String'),
+  \ javaapi#method(0,'getPathInfo(', ')', 'String'),
+  \ javaapi#method(0,'getPathTranslated(', ')', 'String'),
+  \ javaapi#method(0,'getContextPath(', ')', 'String'),
+  \ javaapi#method(0,'getQueryString(', ')', 'String'),
+  \ javaapi#method(0,'getRemoteUser(', ')', 'String'),
+  \ javaapi#method(0,'isUserInRole(', 'String)', 'boolean'),
+  \ javaapi#method(0,'getUserPrincipal(', ')', 'Principal'),
+  \ javaapi#method(0,'getRequestedSessionId(', ')', 'String'),
+  \ javaapi#method(0,'getRequestURI(', ')', 'String'),
+  \ javaapi#method(0,'getRequestURL(', ')', 'StringBuffer'),
+  \ javaapi#method(0,'getServletPath(', ')', 'String'),
+  \ javaapi#method(0,'getSession(', 'boolean)', 'HttpSession'),
+  \ javaapi#method(0,'getSession(', ')', 'HttpSession'),
+  \ javaapi#method(0,'isRequestedSessionIdValid(', ')', 'boolean'),
+  \ javaapi#method(0,'isRequestedSessionIdFromCookie(', ')', 'boolean'),
+  \ javaapi#method(0,'isRequestedSessionIdFromURL(', ')', 'boolean'),
+  \ javaapi#method(0,'isRequestedSessionIdFromUrl(', ')', 'boolean'),
+  \ ])
+
+call javaapi#class('HttpServletRequestWrapper', '', [
+  \ javaapi#method(0,'HttpServletRequestWrapper(', 'HttpServletRequest)', 'public'),
+  \ javaapi#method(0,'getAuthType(', ')', 'String'),
+  \ javaapi#method(0,'getCookies(', ')', 'Cookie[]'),
+  \ javaapi#method(0,'getDateHeader(', 'String)', 'long'),
+  \ javaapi#method(0,'getHeader(', 'String)', 'String'),
+  \ javaapi#method(0,'getHeaders(', 'String)', 'Enumeration'),
+  \ javaapi#method(0,'getHeaderNames(', ')', 'Enumeration'),
+  \ javaapi#method(0,'getIntHeader(', 'String)', 'int'),
+  \ javaapi#method(0,'getMethod(', ')', 'String'),
+  \ javaapi#method(0,'getPathInfo(', ')', 'String'),
+  \ javaapi#method(0,'getPathTranslated(', ')', 'String'),
+  \ javaapi#method(0,'getContextPath(', ')', 'String'),
+  \ javaapi#method(0,'getQueryString(', ')', 'String'),
+  \ javaapi#method(0,'getRemoteUser(', ')', 'String'),
+  \ javaapi#method(0,'isUserInRole(', 'String)', 'boolean'),
+  \ javaapi#method(0,'getUserPrincipal(', ')', 'Principal'),
+  \ javaapi#method(0,'getRequestedSessionId(', ')', 'String'),
+  \ javaapi#method(0,'getRequestURI(', ')', 'String'),
+  \ javaapi#method(0,'getRequestURL(', ')', 'StringBuffer'),
+  \ javaapi#method(0,'getServletPath(', ')', 'String'),
+  \ javaapi#method(0,'getSession(', 'boolean)', 'HttpSession'),
+  \ javaapi#method(0,'getSession(', ')', 'HttpSession'),
+  \ javaapi#method(0,'isRequestedSessionIdValid(', ')', 'boolean'),
+  \ javaapi#method(0,'isRequestedSessionIdFromCookie(', ')', 'boolean'),
+  \ javaapi#method(0,'isRequestedSessionIdFromURL(', ')', 'boolean'),
+  \ javaapi#method(0,'isRequestedSessionIdFromUrl(', ')', 'boolean'),
+  \ ])
+
+call javaapi#interface('HttpServletResponse', '', [
+  \ javaapi#field(1,'SC_CONTINUE', 'int'),
+  \ javaapi#field(1,'SC_SWITCHING_PROTOCOLS', 'int'),
+  \ javaapi#field(1,'SC_OK', 'int'),
+  \ javaapi#field(1,'SC_CREATED', 'int'),
+  \ javaapi#field(1,'SC_ACCEPTED', 'int'),
+  \ javaapi#field(1,'SC_NON_AUTHORITATIVE_INFORMATION', 'int'),
+  \ javaapi#field(1,'SC_NO_CONTENT', 'int'),
+  \ javaapi#field(1,'SC_RESET_CONTENT', 'int'),
+  \ javaapi#field(1,'SC_PARTIAL_CONTENT', 'int'),
+  \ javaapi#field(1,'SC_MULTIPLE_CHOICES', 'int'),
+  \ javaapi#field(1,'SC_MOVED_PERMANENTLY', 'int'),
+  \ javaapi#field(1,'SC_MOVED_TEMPORARILY', 'int'),
+  \ javaapi#field(1,'SC_SEE_OTHER', 'int'),
+  \ javaapi#field(1,'SC_NOT_MODIFIED', 'int'),
+  \ javaapi#field(1,'SC_USE_PROXY', 'int'),
+  \ javaapi#field(1,'SC_TEMPORARY_REDIRECT', 'int'),
+  \ javaapi#field(1,'SC_BAD_REQUEST', 'int'),
+  \ javaapi#field(1,'SC_UNAUTHORIZED', 'int'),
+  \ javaapi#field(1,'SC_PAYMENT_REQUIRED', 'int'),
+  \ javaapi#field(1,'SC_FORBIDDEN', 'int'),
+  \ javaapi#field(1,'SC_NOT_FOUND', 'int'),
+  \ javaapi#field(1,'SC_METHOD_NOT_ALLOWED', 'int'),
+  \ javaapi#field(1,'SC_NOT_ACCEPTABLE', 'int'),
+  \ javaapi#field(1,'SC_PROXY_AUTHENTICATION_REQUIRED', 'int'),
+  \ javaapi#field(1,'SC_REQUEST_TIMEOUT', 'int'),
+  \ javaapi#field(1,'SC_CONFLICT', 'int'),
+  \ javaapi#field(1,'SC_GONE', 'int'),
+  \ javaapi#field(1,'SC_LENGTH_REQUIRED', 'int'),
+  \ javaapi#field(1,'SC_PRECONDITION_FAILED', 'int'),
+  \ javaapi#field(1,'SC_REQUEST_ENTITY_TOO_LARGE', 'int'),
+  \ javaapi#field(1,'SC_REQUEST_URI_TOO_LONG', 'int'),
+  \ javaapi#field(1,'SC_UNSUPPORTED_MEDIA_TYPE', 'int'),
+  \ javaapi#field(1,'SC_REQUESTED_RANGE_NOT_SATISFIABLE', 'int'),
+  \ javaapi#field(1,'SC_EXPECTATION_FAILED', 'int'),
+  \ javaapi#field(1,'SC_INTERNAL_SERVER_ERROR', 'int'),
+  \ javaapi#field(1,'SC_NOT_IMPLEMENTED', 'int'),
+  \ javaapi#field(1,'SC_BAD_GATEWAY', 'int'),
+  \ javaapi#field(1,'SC_SERVICE_UNAVAILABLE', 'int'),
+  \ javaapi#field(1,'SC_GATEWAY_TIMEOUT', 'int'),
+  \ javaapi#field(1,'SC_HTTP_VERSION_NOT_SUPPORTED', 'int'),
+  \ javaapi#method(0,'addCookie(', 'Cookie)', 'void'),
+  \ javaapi#method(0,'containsHeader(', 'String)', 'boolean'),
+  \ javaapi#method(0,'encodeURL(', 'String)', 'String'),
+  \ javaapi#method(0,'encodeRedirectURL(', 'String)', 'String'),
+  \ javaapi#method(0,'encodeUrl(', 'String)', 'String'),
+  \ javaapi#method(0,'encodeRedirectUrl(', 'String)', 'String'),
+  \ javaapi#method(0,'sendError(', 'int, String) throws IOException', 'void'),
+  \ javaapi#method(0,'sendError(', 'int) throws IOException', 'void'),
+  \ javaapi#method(0,'sendRedirect(', 'String) throws IOException', 'void'),
+  \ javaapi#method(0,'setDateHeader(', 'String, long)', 'void'),
+  \ javaapi#method(0,'addDateHeader(', 'String, long)', 'void'),
+  \ javaapi#method(0,'setHeader(', 'String, String)', 'void'),
+  \ javaapi#method(0,'addHeader(', 'String, String)', 'void'),
+  \ javaapi#method(0,'setIntHeader(', 'String, int)', 'void'),
+  \ javaapi#method(0,'addIntHeader(', 'String, int)', 'void'),
+  \ javaapi#method(0,'setStatus(', 'int)', 'void'),
+  \ javaapi#method(0,'setStatus(', 'int, String)', 'void'),
+  \ ])
+
+call javaapi#class('HttpServletResponseWrapper', '', [
+  \ javaapi#method(0,'HttpServletResponseWrapper(', 'HttpServletResponse)', 'public'),
+  \ javaapi#method(0,'addCookie(', 'Cookie)', 'void'),
+  \ javaapi#method(0,'containsHeader(', 'String)', 'boolean'),
+  \ javaapi#method(0,'encodeURL(', 'String)', 'String'),
+  \ javaapi#method(0,'encodeRedirectURL(', 'String)', 'String'),
+  \ javaapi#method(0,'encodeUrl(', 'String)', 'String'),
+  \ javaapi#method(0,'encodeRedirectUrl(', 'String)', 'String'),
+  \ javaapi#method(0,'sendError(', 'int, String) throws IOException', 'void'),
+  \ javaapi#method(0,'sendError(', 'int) throws IOException', 'void'),
+  \ javaapi#method(0,'sendRedirect(', 'String) throws IOException', 'void'),
+  \ javaapi#method(0,'setDateHeader(', 'String, long)', 'void'),
+  \ javaapi#method(0,'addDateHeader(', 'String, long)', 'void'),
+  \ javaapi#method(0,'setHeader(', 'String, String)', 'void'),
+  \ javaapi#method(0,'addHeader(', 'String, String)', 'void'),
+  \ javaapi#method(0,'setIntHeader(', 'String, int)', 'void'),
+  \ javaapi#method(0,'addIntHeader(', 'String, int)', 'void'),
+  \ javaapi#method(0,'setStatus(', 'int)', 'void'),
+  \ javaapi#method(0,'setStatus(', 'int, String)', 'void'),
+  \ ])
+
+call javaapi#interface('HttpSession', '', [
+  \ javaapi#method(0,'getCreationTime(', ')', 'long'),
+  \ javaapi#method(0,'getId(', ')', 'String'),
+  \ javaapi#method(0,'getLastAccessedTime(', ')', 'long'),
+  \ javaapi#method(0,'getServletContext(', ')', 'ServletContext'),
+  \ javaapi#method(0,'setMaxInactiveInterval(', 'int)', 'void'),
+  \ javaapi#method(0,'getMaxInactiveInterval(', ')', 'int'),
+  \ javaapi#method(0,'getSessionContext(', ')', 'HttpSessionContext'),
+  \ javaapi#method(0,'getAttribute(', 'String)', 'Object'),
+  \ javaapi#method(0,'getValue(', 'String)', 'Object'),
+  \ javaapi#method(0,'getAttributeNames(', ')', 'Enumeration'),
+  \ javaapi#method(0,'getValueNames(', ')', 'String[]'),
+  \ javaapi#method(0,'setAttribute(', 'String, Object)', 'void'),
+  \ javaapi#method(0,'putValue(', 'String, Object)', 'void'),
+  \ javaapi#method(0,'removeAttribute(', 'String)', 'void'),
+  \ javaapi#method(0,'removeValue(', 'String)', 'void'),
+  \ javaapi#method(0,'invalidate(', ')', 'void'),
+  \ javaapi#method(0,'isNew(', ')', 'boolean'),
+  \ ])
+
+call javaapi#interface('HttpSessionActivationListener', '', [
+  \ javaapi#method(0,'sessionWillPassivate(', 'HttpSessionEvent)', 'void'),
+  \ javaapi#method(0,'sessionDidActivate(', 'HttpSessionEvent)', 'void'),
+  \ ])
+
+call javaapi#interface('HttpSessionAttributeListener', '', [
+  \ javaapi#method(0,'attributeAdded(', 'HttpSessionBindingEvent)', 'void'),
+  \ javaapi#method(0,'attributeRemoved(', 'HttpSessionBindingEvent)', 'void'),
+  \ javaapi#method(0,'attributeReplaced(', 'HttpSessionBindingEvent)', 'void'),
+  \ ])
+
+call javaapi#class('HttpSessionBindingEvent', '', [
+  \ javaapi#method(0,'HttpSessionBindingEvent(', 'HttpSession, String)', 'public'),
+  \ javaapi#method(0,'HttpSessionBindingEvent(', 'HttpSession, String, Object)', 'public'),
+  \ javaapi#method(0,'getSession(', ')', 'HttpSession'),
+  \ javaapi#method(0,'getName(', ')', 'String'),
+  \ javaapi#method(0,'getValue(', ')', 'Object'),
+  \ ])
+
+call javaapi#interface('HttpSessionBindingListener', '', [
+  \ javaapi#method(0,'valueBound(', 'HttpSessionBindingEvent)', 'void'),
+  \ javaapi#method(0,'valueUnbound(', 'HttpSessionBindingEvent)', 'void'),
+  \ ])
+
+call javaapi#interface('HttpSessionContext', '', [
+  \ javaapi#method(0,'getSession(', 'String)', 'HttpSession'),
+  \ javaapi#method(0,'getIds(', ')', 'Enumeration'),
+  \ ])
+
+call javaapi#class('HttpSessionEvent', '', [
+  \ javaapi#method(0,'HttpSessionEvent(', 'HttpSession)', 'public'),
+  \ javaapi#method(0,'getSession(', ')', 'HttpSession'),
+  \ ])
+
+call javaapi#interface('HttpSessionListener', '', [
+  \ javaapi#method(0,'sessionCreated(', 'HttpSessionEvent)', 'void'),
+  \ javaapi#method(0,'sessionDestroyed(', 'HttpSessionEvent)', 'void'),
+  \ ])
+
+call javaapi#class('HttpUtils', '', [
+  \ javaapi#method(0,'HttpUtils(', ')', 'public'),
+  \ javaapi#method(1,'parseQueryString(', 'String)', 'Hashtable'),
+  \ javaapi#method(1,'parsePostData(', 'int, ServletInputStream)', 'Hashtable'),
+  \ javaapi#method(1,'getRequestURL(', 'HttpServletRequest)', 'StringBuffer'),
+  \ ])
+
+call javaapi#class('NoBodyOutputStream', '', [
+  \ javaapi#method(0,'write(', 'int)', 'void'),
+  \ javaapi#method(0,'write(', 'byte[], int, int) throws IOException', 'void'),
+  \ ])
+
+call javaapi#class('NoBodyResponse', 'HttpServletResponse', [
+  \ javaapi#method(0,'setContentLength(', 'int)', 'void'),
+  \ javaapi#method(0,'setContentType(', 'String)', 'void'),
+  \ javaapi#method(0,'getOutputStream(', ') throws IOException', 'ServletOutputStream'),
+  \ javaapi#method(0,'getCharacterEncoding(', ')', 'String'),
+  \ javaapi#method(0,'getWriter(', ') throws UnsupportedEncodingException', 'PrintWriter'),
+  \ javaapi#method(0,'setBufferSize(', 'int) throws IllegalStateException', 'void'),
+  \ javaapi#method(0,'getBufferSize(', ')', 'int'),
+  \ javaapi#method(0,'reset(', ') throws IllegalStateException', 'void'),
+  \ javaapi#method(0,'resetBuffer(', ') throws IllegalStateException', 'void'),
+  \ javaapi#method(0,'isCommitted(', ')', 'boolean'),
+  \ javaapi#method(0,'flushBuffer(', ') throws IOException', 'void'),
+  \ javaapi#method(0,'setLocale(', 'Locale)', 'void'),
+  \ javaapi#method(0,'getLocale(', ')', 'Locale'),
+  \ javaapi#method(0,'addCookie(', 'Cookie)', 'void'),
+  \ javaapi#method(0,'containsHeader(', 'String)', 'boolean'),
+  \ javaapi#method(0,'setStatus(', 'int, String)', 'void'),
+  \ javaapi#method(0,'setStatus(', 'int)', 'void'),
+  \ javaapi#method(0,'setHeader(', 'String, String)', 'void'),
+  \ javaapi#method(0,'setIntHeader(', 'String, int)', 'void'),
+  \ javaapi#method(0,'setDateHeader(', 'String, long)', 'void'),
+  \ javaapi#method(0,'sendError(', 'int, String) throws IOException', 'void'),
+  \ javaapi#method(0,'sendError(', 'int) throws IOException', 'void'),
+  \ javaapi#method(0,'sendRedirect(', 'String) throws IOException', 'void'),
+  \ javaapi#method(0,'encodeURL(', 'String)', 'String'),
+  \ javaapi#method(0,'encodeRedirectURL(', 'String)', 'String'),
+  \ javaapi#method(0,'addHeader(', 'String, String)', 'void'),
+  \ javaapi#method(0,'addDateHeader(', 'String, long)', 'void'),
+  \ javaapi#method(0,'addIntHeader(', 'String, int)', 'void'),
+  \ javaapi#method(0,'encodeUrl(', 'String)', 'String'),
+  \ javaapi#method(0,'encodeRedirectUrl(', 'String)', 'String'),
+  \ ])
+
