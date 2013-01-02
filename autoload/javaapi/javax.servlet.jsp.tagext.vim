@@ -1,6 +1,6 @@
 call javaapi#namespace('javax.servlet.jsp.tagext')
 
-call javaapi#class('BodyContent', '', [
+call javaapi#class('BodyContent', 'JspWriter', [
   \ javaapi#method(0,'flush(', ') throws IOException', 'void'),
   \ javaapi#method(0,'clearBody(', ')', 'void'),
   \ javaapi#method(0,'getReader(', ')', 'Reader'),
@@ -9,14 +9,14 @@ call javaapi#class('BodyContent', '', [
   \ javaapi#method(0,'getEnclosingWriter(', ')', 'JspWriter'),
   \ ])
 
-call javaapi#interface('BodyTag', '', [
+call javaapi#interface('BodyTag', 'IterationTag', [
   \ javaapi#field(1,'EVAL_BODY_TAG', 'int'),
   \ javaapi#field(1,'EVAL_BODY_BUFFERED', 'int'),
   \ javaapi#method(0,'setBodyContent(', 'BodyContent)', 'void'),
   \ javaapi#method(0,'doInitBody(', ') throws JspException', 'void'),
   \ ])
 
-call javaapi#class('BodyTagSupport', '', [
+call javaapi#class('BodyTagSupport', 'TagSupport', [
   \ javaapi#method(0,'BodyTagSupport(', ')', 'public'),
   \ javaapi#method(0,'doStartTag(', ') throws JspException', 'int'),
   \ javaapi#method(0,'doEndTag(', ') throws JspException', 'int'),
@@ -28,7 +28,7 @@ call javaapi#class('BodyTagSupport', '', [
   \ javaapi#method(0,'getPreviousOut(', ')', 'JspWriter'),
   \ ])
 
-call javaapi#interface('IterationTag', '', [
+call javaapi#interface('IterationTag', 'Tag', [
   \ javaapi#field(1,'EVAL_BODY_AGAIN', 'int'),
   \ javaapi#method(0,'doAfterBody(', ') throws JspException', 'int'),
   \ ])

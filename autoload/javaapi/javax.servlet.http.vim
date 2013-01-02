@@ -20,12 +20,12 @@ call javaapi#class('Cookie', 'Cloneable', [
   \ javaapi#method(0,'clone(', ')', 'Object'),
   \ ])
 
-call javaapi#class('HttpServlet', '', [
+call javaapi#class('HttpServlet', 'GenericServlet', [
   \ javaapi#method(0,'HttpServlet(', ')', 'public'),
   \ javaapi#method(0,'service(', 'ServletRequest, ServletResponse) throws ServletException, IOException', 'void'),
   \ ])
 
-call javaapi#interface('HttpServletRequest', '', [
+call javaapi#interface('HttpServletRequest', 'ServletRequest', [
   \ javaapi#field(1,'BASIC_AUTH', 'String'),
   \ javaapi#field(1,'FORM_AUTH', 'String'),
   \ javaapi#field(1,'CLIENT_CERT_AUTH', 'String'),
@@ -57,7 +57,7 @@ call javaapi#interface('HttpServletRequest', '', [
   \ javaapi#method(0,'isRequestedSessionIdFromUrl(', ')', 'boolean'),
   \ ])
 
-call javaapi#class('HttpServletRequestWrapper', '', [
+call javaapi#class('HttpServletRequestWrapper', 'ServletRequestWrapper', [
   \ javaapi#method(0,'HttpServletRequestWrapper(', 'HttpServletRequest)', 'public'),
   \ javaapi#method(0,'getAuthType(', ')', 'String'),
   \ javaapi#method(0,'getCookies(', ')', 'Cookie[]'),
@@ -86,7 +86,7 @@ call javaapi#class('HttpServletRequestWrapper', '', [
   \ javaapi#method(0,'isRequestedSessionIdFromUrl(', ')', 'boolean'),
   \ ])
 
-call javaapi#interface('HttpServletResponse', '', [
+call javaapi#interface('HttpServletResponse', 'ServletResponse', [
   \ javaapi#field(1,'SC_CONTINUE', 'int'),
   \ javaapi#field(1,'SC_SWITCHING_PROTOCOLS', 'int'),
   \ javaapi#field(1,'SC_OK', 'int'),
@@ -146,7 +146,7 @@ call javaapi#interface('HttpServletResponse', '', [
   \ javaapi#method(0,'setStatus(', 'int, String)', 'void'),
   \ ])
 
-call javaapi#class('HttpServletResponseWrapper', '', [
+call javaapi#class('HttpServletResponseWrapper', 'ServletResponseWrapper', [
   \ javaapi#method(0,'HttpServletResponseWrapper(', 'HttpServletResponse)', 'public'),
   \ javaapi#method(0,'addCookie(', 'Cookie)', 'void'),
   \ javaapi#method(0,'containsHeader(', 'String)', 'boolean'),
@@ -187,18 +187,18 @@ call javaapi#interface('HttpSession', '', [
   \ javaapi#method(0,'isNew(', ')', 'boolean'),
   \ ])
 
-call javaapi#interface('HttpSessionActivationListener', '', [
+call javaapi#interface('HttpSessionActivationListener', 'EventListener', [
   \ javaapi#method(0,'sessionWillPassivate(', 'HttpSessionEvent)', 'void'),
   \ javaapi#method(0,'sessionDidActivate(', 'HttpSessionEvent)', 'void'),
   \ ])
 
-call javaapi#interface('HttpSessionAttributeListener', '', [
+call javaapi#interface('HttpSessionAttributeListener', 'EventListener', [
   \ javaapi#method(0,'attributeAdded(', 'HttpSessionBindingEvent)', 'void'),
   \ javaapi#method(0,'attributeRemoved(', 'HttpSessionBindingEvent)', 'void'),
   \ javaapi#method(0,'attributeReplaced(', 'HttpSessionBindingEvent)', 'void'),
   \ ])
 
-call javaapi#class('HttpSessionBindingEvent', '', [
+call javaapi#class('HttpSessionBindingEvent', 'HttpSessionEvent', [
   \ javaapi#method(0,'HttpSessionBindingEvent(', 'HttpSession, String)', 'public'),
   \ javaapi#method(0,'HttpSessionBindingEvent(', 'HttpSession, String, Object)', 'public'),
   \ javaapi#method(0,'getSession(', ')', 'HttpSession'),
@@ -206,7 +206,7 @@ call javaapi#class('HttpSessionBindingEvent', '', [
   \ javaapi#method(0,'getValue(', ')', 'Object'),
   \ ])
 
-call javaapi#interface('HttpSessionBindingListener', '', [
+call javaapi#interface('HttpSessionBindingListener', 'EventListener', [
   \ javaapi#method(0,'valueBound(', 'HttpSessionBindingEvent)', 'void'),
   \ javaapi#method(0,'valueUnbound(', 'HttpSessionBindingEvent)', 'void'),
   \ ])
@@ -216,12 +216,12 @@ call javaapi#interface('HttpSessionContext', '', [
   \ javaapi#method(0,'getIds(', ')', 'Enumeration'),
   \ ])
 
-call javaapi#class('HttpSessionEvent', '', [
+call javaapi#class('HttpSessionEvent', 'EventObject', [
   \ javaapi#method(0,'HttpSessionEvent(', 'HttpSession)', 'public'),
   \ javaapi#method(0,'getSession(', ')', 'HttpSession'),
   \ ])
 
-call javaapi#interface('HttpSessionListener', '', [
+call javaapi#interface('HttpSessionListener', 'EventListener', [
   \ javaapi#method(0,'sessionCreated(', 'HttpSessionEvent)', 'void'),
   \ javaapi#method(0,'sessionDestroyed(', 'HttpSessionEvent)', 'void'),
   \ ])
@@ -233,7 +233,7 @@ call javaapi#class('HttpUtils', '', [
   \ javaapi#method(1,'getRequestURL(', 'HttpServletRequest)', 'StringBuffer'),
   \ ])
 
-call javaapi#class('NoBodyOutputStream', '', [
+call javaapi#class('NoBodyOutputStream', 'ServletOutputStream', [
   \ javaapi#method(0,'write(', 'int)', 'void'),
   \ javaapi#method(0,'write(', 'byte[], int, int) throws IOException', 'void'),
   \ ])

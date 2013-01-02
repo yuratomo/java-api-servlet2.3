@@ -1,5 +1,40 @@
 call javaapi#namespace('javax.servlet')
 
+call javaapi#interface('Filter', '', [
+  \ javaapi#method(0,'init(', 'FilterConfig) throws ServletException', 'void'),
+  \ javaapi#method(0,'doFilter(', 'ServletRequest, ServletResponse, FilterChain) throws IOException, ServletException', 'void'),
+  \ javaapi#method(0,'destroy(', ')', 'void'),
+  \ ])
+
+call javaapi#interface('FilterChain', '', [
+  \ javaapi#method(0,'doFilter(', 'ServletRequest, ServletResponse) throws IOException, ServletException', 'void'),
+  \ ])
+
+call javaapi#interface('FilterConfig', '', [
+  \ javaapi#method(0,'getFilterName(', ')', 'String'),
+  \ javaapi#method(0,'getServletContext(', ')', 'ServletContext'),
+  \ javaapi#method(0,'getInitParameter(', 'String)', 'String'),
+  \ javaapi#method(0,'getInitParameterNames(', ')', 'Enumeration'),
+  \ ])
+
+call javaapi#class('GenericServlet', 'Serializable', [
+  \ javaapi#method(0,'GenericServlet(', ')', 'public'),
+  \ javaapi#method(0,'destroy(', ')', 'void'),
+  \ javaapi#method(0,'getInitParameter(', 'String)', 'String'),
+  \ javaapi#method(0,'getInitParameterNames(', ')', 'Enumeration'),
+  \ javaapi#method(0,'getServletConfig(', ')', 'ServletConfig'),
+  \ javaapi#method(0,'getServletContext(', ')', 'ServletContext'),
+  \ javaapi#method(0,'getServletInfo(', ')', 'String'),
+  \ javaapi#method(0,'init(', 'ServletConfig) throws ServletException', 'void'),
+  \ javaapi#method(0,'init(', ') throws ServletException', 'void'),
+  \ javaapi#method(0,'log(', 'String)', 'void'),
+  \ javaapi#method(0,'log(', 'String, Throwable)', 'void'),
+  \ javaapi#method(0,'service(', 'ServletRequest, ServletResponse) throws ServletException, IOException', 'void'),
+  \ javaapi#method(0,'getServletName(', ')', 'String'),
+  \ ])
+
+call javaapi#namespace('javax.servlet')
+
 call javaapi#interface('RequestDispatcher', '', [
   \ javaapi#method(0,'forward(', 'ServletRequest, ServletResponse) throws ServletException, IOException', 'void'),
   \ javaapi#method(0,'include(', 'ServletRequest, ServletResponse) throws ServletException, IOException', 'void'),
@@ -47,29 +82,29 @@ call javaapi#interface('ServletContext', '', [
   \ javaapi#method(0,'getServletContextName(', ')', 'String'),
   \ ])
 
-call javaapi#class('ServletContextAttributeEvent', '', [
+call javaapi#class('ServletContextAttributeEvent', 'ServletContextEvent', [
   \ javaapi#method(0,'ServletContextAttributeEvent(', 'ServletContext, String, Object)', 'public'),
   \ javaapi#method(0,'getName(', ')', 'String'),
   \ javaapi#method(0,'getValue(', ')', 'Object'),
   \ ])
 
-call javaapi#interface('ServletContextAttributeListener', '', [
+call javaapi#interface('ServletContextAttributeListener', 'EventListener', [
   \ javaapi#method(0,'attributeAdded(', 'ServletContextAttributeEvent)', 'void'),
   \ javaapi#method(0,'attributeRemoved(', 'ServletContextAttributeEvent)', 'void'),
   \ javaapi#method(0,'attributeReplaced(', 'ServletContextAttributeEvent)', 'void'),
   \ ])
 
-call javaapi#class('ServletContextEvent', '', [
+call javaapi#class('ServletContextEvent', 'EventObject', [
   \ javaapi#method(0,'ServletContextEvent(', 'ServletContext)', 'public'),
   \ javaapi#method(0,'getServletContext(', ')', 'ServletContext'),
   \ ])
 
-call javaapi#interface('ServletContextListener', '', [
+call javaapi#interface('ServletContextListener', 'EventListener', [
   \ javaapi#method(0,'contextInitialized(', 'ServletContextEvent)', 'void'),
   \ javaapi#method(0,'contextDestroyed(', 'ServletContextEvent)', 'void'),
   \ ])
 
-call javaapi#class('ServletException', '', [
+call javaapi#class('ServletException', 'Exception', [
   \ javaapi#method(0,'ServletException(', ')', 'public'),
   \ javaapi#method(0,'ServletException(', 'String)', 'public'),
   \ javaapi#method(0,'ServletException(', 'String, Throwable)', 'public'),
@@ -77,11 +112,11 @@ call javaapi#class('ServletException', '', [
   \ javaapi#method(0,'getRootCause(', ')', 'Throwable'),
   \ ])
 
-call javaapi#class('ServletInputStream', '', [
+call javaapi#class('ServletInputStream', 'InputStream', [
   \ javaapi#method(0,'readLine(', 'byte[], int, int) throws IOException', 'int'),
   \ ])
 
-call javaapi#class('ServletOutputStream', '', [
+call javaapi#class('ServletOutputStream', 'OutputStream', [
   \ javaapi#method(0,'print(', 'String) throws IOException', 'void'),
   \ javaapi#method(0,'print(', 'boolean) throws IOException', 'void'),
   \ javaapi#method(0,'print(', 'char) throws IOException', 'void'),
@@ -196,7 +231,7 @@ call javaapi#class('ServletResponseWrapper', 'ServletResponse', [
 call javaapi#interface('SingleThreadModel', '', [
   \ ])
 
-call javaapi#class('UnavailableException', '', [
+call javaapi#class('UnavailableException', 'ServletException', [
   \ javaapi#method(0,'UnavailableException(', 'Servlet, String)', 'public'),
   \ javaapi#method(0,'UnavailableException(', 'int, Servlet, String)', 'public'),
   \ javaapi#method(0,'UnavailableException(', 'String)', 'public'),
@@ -204,39 +239,5 @@ call javaapi#class('UnavailableException', '', [
   \ javaapi#method(0,'isPermanent(', ')', 'boolean'),
   \ javaapi#method(0,'getServlet(', ')', 'Servlet'),
   \ javaapi#method(0,'getUnavailableSeconds(', ')', 'int'),
-  \ ])
-
-
-call javaapi#interface('Filter', '', [
-  \ javaapi#method(0,'init(', 'FilterConfig) throws ServletException', 'void'),
-  \ javaapi#method(0,'doFilter(', 'ServletRequest, ServletResponse, FilterChain) throws IOException, ServletException', 'void'),
-  \ javaapi#method(0,'destroy(', ')', 'void'),
-  \ ])
-
-call javaapi#interface('FilterChain', '', [
-  \ javaapi#method(0,'doFilter(', 'ServletRequest, ServletResponse) throws IOException, ServletException', 'void'),
-  \ ])
-
-call javaapi#interface('FilterConfig', '', [
-  \ javaapi#method(0,'getFilterName(', ')', 'String'),
-  \ javaapi#method(0,'getServletContext(', ')', 'ServletContext'),
-  \ javaapi#method(0,'getInitParameter(', 'String)', 'String'),
-  \ javaapi#method(0,'getInitParameterNames(', ')', 'Enumeration'),
-  \ ])
-
-call javaapi#class('GenericServlet', 'Serializable', [
-  \ javaapi#method(0,'GenericServlet(', ')', 'public'),
-  \ javaapi#method(0,'destroy(', ')', 'void'),
-  \ javaapi#method(0,'getInitParameter(', 'String)', 'String'),
-  \ javaapi#method(0,'getInitParameterNames(', ')', 'Enumeration'),
-  \ javaapi#method(0,'getServletConfig(', ')', 'ServletConfig'),
-  \ javaapi#method(0,'getServletContext(', ')', 'ServletContext'),
-  \ javaapi#method(0,'getServletInfo(', ')', 'String'),
-  \ javaapi#method(0,'init(', 'ServletConfig) throws ServletException', 'void'),
-  \ javaapi#method(0,'init(', ') throws ServletException', 'void'),
-  \ javaapi#method(0,'log(', 'String)', 'void'),
-  \ javaapi#method(0,'log(', 'String, Throwable)', 'void'),
-  \ javaapi#method(0,'service(', 'ServletRequest, ServletResponse) throws ServletException, IOException', 'void'),
-  \ javaapi#method(0,'getServletName(', ')', 'String'),
   \ ])
 

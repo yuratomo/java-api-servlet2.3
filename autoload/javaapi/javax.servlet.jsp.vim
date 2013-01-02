@@ -1,6 +1,6 @@
 call javaapi#namespace('javax.servlet.jsp')
 
-call javaapi#interface('HttpJspPage', '', [
+call javaapi#interface('HttpJspPage', 'JspPage', [
   \ javaapi#method(0,'_jspService(', 'HttpServletRequest, HttpServletResponse) throws ServletException, IOException', 'void'),
   \ ])
 
@@ -9,7 +9,7 @@ call javaapi#class('JspEngineInfo', '', [
   \ javaapi#method(0,'getSpecificationVersion(', ')', 'String'),
   \ ])
 
-call javaapi#class('JspException', '', [
+call javaapi#class('JspException', 'Exception', [
   \ javaapi#method(0,'JspException(', ')', 'public'),
   \ javaapi#method(0,'JspException(', 'String)', 'public'),
   \ javaapi#method(0,'JspException(', 'String, Throwable)', 'public'),
@@ -26,17 +26,17 @@ call javaapi#class('JspFactory', '', [
   \ javaapi#method(0,'getEngineInfo(', ')', 'JspEngineInfo'),
   \ ])
 
-call javaapi#interface('JspPage', '', [
+call javaapi#interface('JspPage', 'Servlet', [
   \ javaapi#method(0,'jspInit(', ')', 'void'),
   \ javaapi#method(0,'jspDestroy(', ')', 'void'),
   \ ])
 
-call javaapi#class('JspTagException', '', [
+call javaapi#class('JspTagException', 'JspException', [
   \ javaapi#method(0,'JspTagException(', 'String)', 'public'),
   \ javaapi#method(0,'JspTagException(', ')', 'public'),
   \ ])
 
-call javaapi#class('JspWriter', '', [
+call javaapi#class('JspWriter', 'Writer', [
   \ javaapi#field(1,'NO_BUFFER', 'int'),
   \ javaapi#field(1,'DEFAULT_BUFFER', 'int'),
   \ javaapi#field(1,'UNBOUNDED_BUFFER', 'int'),
