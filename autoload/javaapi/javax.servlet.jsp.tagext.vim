@@ -77,7 +77,7 @@ call javaapi#class('TagData', 'Cloneable', [
 
 call javaapi#class('TagExtraInfo', '', [
   \ javaapi#method(0,1,'TagExtraInfo(', ')', ''),
-  \ javaapi#method(0,1,'getVariableInfo(', 'TagData)', 'VariableInfo[]'),
+  \ javaapi#method(0,1,'getVariableInfo(', 'TagData)', 'VariableInfo'),
   \ javaapi#method(0,1,'isValid(', 'TagData)', 'boolean'),
   \ javaapi#method(0,1,'setTagInfo(', 'TagInfo)', 'void'),
   \ javaapi#method(0,1,'getTagInfo(', ')', 'TagInfo'),
@@ -90,8 +90,8 @@ call javaapi#class('TagInfo', '', [
   \ javaapi#method(0,1,'TagInfo(', 'String, String, String, String, TagLibraryInfo, TagExtraInfo, TagAttributeInfo[])', ''),
   \ javaapi#method(0,1,'TagInfo(', 'String, String, String, String, TagLibraryInfo, TagExtraInfo, TagAttributeInfo[], String, String, String, TagVariableInfo[])', ''),
   \ javaapi#method(0,1,'getTagName(', ')', 'String'),
-  \ javaapi#method(0,1,'getAttributes(', ')', 'TagAttributeInfo[]'),
-  \ javaapi#method(0,1,'getVariableInfo(', 'TagData)', 'VariableInfo[]'),
+  \ javaapi#method(0,1,'getAttributes(', ')', 'TagAttributeInfo'),
+  \ javaapi#method(0,1,'getVariableInfo(', 'TagData)', 'VariableInfo'),
   \ javaapi#method(0,1,'isValid(', 'TagData)', 'boolean'),
   \ javaapi#method(0,1,'setTagExtraInfo(', 'TagExtraInfo)', 'void'),
   \ javaapi#method(0,1,'getTagExtraInfo(', ')', 'TagExtraInfo'),
@@ -103,14 +103,14 @@ call javaapi#class('TagInfo', '', [
   \ javaapi#method(0,1,'getDisplayName(', ')', 'String'),
   \ javaapi#method(0,1,'getSmallIcon(', ')', 'String'),
   \ javaapi#method(0,1,'getLargeIcon(', ')', 'String'),
-  \ javaapi#method(0,1,'getTagVariableInfos(', ')', 'TagVariableInfo[]'),
+  \ javaapi#method(0,1,'getTagVariableInfos(', ')', 'TagVariableInfo'),
   \ javaapi#method(0,1,'toString(', ')', 'String'),
   \ ])
 
 call javaapi#class('TagLibraryInfo', '', [
   \ javaapi#field(0,0,'prefix', 'String'),
   \ javaapi#field(0,0,'uri', 'String'),
-  \ javaapi#field(0,0,'tags', 'TagInfo[]'),
+  \ javaapi#field(0,0,'tags', 'TagInfo'),
   \ javaapi#field(0,0,'tlibversion', 'String'),
   \ javaapi#field(0,0,'jspversion', 'String'),
   \ javaapi#field(0,0,'shortname', 'String'),
@@ -123,7 +123,7 @@ call javaapi#class('TagLibraryInfo', '', [
   \ javaapi#method(0,1,'getReliableURN(', ')', 'String'),
   \ javaapi#method(0,1,'getInfoString(', ')', 'String'),
   \ javaapi#method(0,1,'getRequiredVersion(', ')', 'String'),
-  \ javaapi#method(0,1,'getTags(', ')', 'TagInfo[]'),
+  \ javaapi#method(0,1,'getTags(', ')', 'TagInfo'),
   \ javaapi#method(0,1,'getTag(', 'String)', 'TagInfo'),
   \ ])
 
@@ -131,7 +131,7 @@ call javaapi#class('TagLibraryValidator', '', [
   \ javaapi#method(0,1,'TagLibraryValidator(', ')', ''),
   \ javaapi#method(0,1,'setInitParameters(', 'Map)', 'void'),
   \ javaapi#method(0,1,'getInitParameters(', ')', 'Map'),
-  \ javaapi#method(0,1,'validate(', 'String, String, PageData)', 'ValidationMessage[]'),
+  \ javaapi#method(0,1,'validate(', 'String, String, PageData)', 'ValidationMessage'),
   \ javaapi#method(0,1,'release(', ')', 'void'),
   \ ])
 
